@@ -1,1 +1,1 @@
-# notes-etudiants l3
+# notes-etudiants l3-devSecops
