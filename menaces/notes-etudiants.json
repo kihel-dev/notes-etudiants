@@ -1,0 +1,1464 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Application des notes",
+    "owner": "KIHEL Mohammed",
+    "description": "API web Python (Flask) qui permet aux étudiants de consulter leurs notes depuis leur téléphone et aux enseignants de saisir et modifier les notes de leur module. Les notes sont stockées dans une base SQLite (notes.db) sur le serveur de l'école, maintenu par un administrateur.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "version": "2.6.2",
+        "title": "Flux de données",
+        "description": "Échanges entre les utilisateurs, l'API web et la base des notes.",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "diagramType": "STRIDE",
+        "id": 0,
+        "cells": [
+          {
+            "position": {
+              "x": 40,
+              "y": 40
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Étudiant"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "61dbc344-46e2-486f-8948-6687f50a43a0"
+                },
+                {
+                  "group": "right",
+                  "id": "ad01c532-eb10-42f8-81da-c26d20d96022"
+                },
+                {
+                  "group": "bottom",
+                  "id": "aeb7de8d-8cfc-4471-bdc4-9b2884a91de1"
+                },
+                {
+                  "group": "left",
+                  "id": "cb799727-5a0e-4ea1-bf76-7f6a9804f774"
+                }
+              ]
+            },
+            "id": "7b6d45db-bc99-41a6-b550-37879a923fe1",
+            "data": {
+              "name": "Étudiant",
+              "description": "Consulte ses notes depuis son téléphone (4G ou Wi-Fi).",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 260
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Enseignant"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "20357b70-5326-4789-b348-e7ed3723b8b0"
+                },
+                {
+                  "group": "right",
+                  "id": "f938f8a3-db1e-4dee-af5e-cdab2a503f10"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c5a030e2-33ec-4b63-8b1e-56fc4c26c70b"
+                },
+                {
+                  "group": "left",
+                  "id": "7d95e325-1313-490a-b8a1-e2de66469cb0"
+                }
+              ]
+            },
+            "id": "a6a004e1-b058-4c2c-9304-650ee7b40861",
+            "data": {
+              "name": "Enseignant",
+              "description": "Saisit et modifie les notes de son module depuis la salle des professeurs.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 480
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Administrateur"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "10ebb73e-73ff-45eb-9c26-6cfdcbd5043a"
+                },
+                {
+                  "group": "right",
+                  "id": "9c7b5c43-a5c6-47c7-9ed3-1ca2ebf72fa5"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8276f395-e7d6-483d-9761-c6c68b98f3ea"
+                },
+                {
+                  "group": "left",
+                  "id": "3d52f086-1545-4e07-bf66-2ed063128bae"
+                }
+              ]
+            },
+            "id": "ee77eab4-952a-4476-8046-176e122996fa",
+            "data": {
+              "name": "Administrateur",
+              "description": "Maintient le serveur de l'école.",
+              "type": "tm.Actor",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [],
+              "hasOpenThreats": false,
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 500,
+              "y": 230
+            },
+            "size": {
+              "width": 140,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "API web"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "f149393a-75f6-41a9-9eec-98e391833d6f"
+                },
+                {
+                  "group": "right",
+                  "id": "6c1378d7-80e1-4fe2-b005-2afde23660cd"
+                },
+                {
+                  "group": "bottom",
+                  "id": "3f913542-8c62-48ca-9f91-feca4dc1d993"
+                },
+                {
+                  "group": "left",
+                  "id": "4bcf934d-6bc5-4498-a90b-f49ac7ce8fb4"
+                }
+              ]
+            },
+            "id": "55cc2388-5002-4d34-99f6-469390c1079e",
+            "data": {
+              "name": "API web",
+              "description": "Application Flask : identifie l'utilisateur, vérifie ses droits, lit et écrit les notes.",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Connexion avec le mot de passe volé d'un enseignant",
+                  "type": "Spoofing",
+                  "description": "Un étudiant obtient le mot de passe d'un enseignant et se connecte à sa place pour modifier des notes.",
+                  "mitigation": "Authentification forte (mot de passe + code), blocage après plusieurs échecs.",
+                  "modelType": "STRIDE",
+                  "id": "31e8d45d-f04f-4c5f-9f89-9196ad979aa8",
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Critical",
+                  "title": "Un étudiant appelle directement la modification d'une note",
+                  "type": "Elevation of privilege",
+                  "description": "L'application cache le bouton « Modifier » aux étudiants, mais l'API ne vérifie pas le rôle : un étudiant envoie la demande lui-même.",
+                  "mitigation": "Vérifier sur chaque route de l'API que l'utilisateur a le bon rôle (autorisation).",
+                  "modelType": "STRIDE",
+                  "id": "ee5352ae-6ed4-4134-8359-68717fe5a35d",
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Des milliers de requêtes le jour des résultats",
+                  "type": "Denial of service",
+                  "description": "Un attaquant envoie un grand nombre de requêtes et bloque l'API au moment de la publication des résultats.",
+                  "mitigation": "Limiter le nombre de requêtes par utilisateur et par minute.",
+                  "modelType": "STRIDE",
+                  "id": "a83ac15c-0f85-462c-9957-aed95048aef8",
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Un enseignant nie avoir modifié une note",
+                  "type": "Repudiation",
+                  "description": "Une note est modifiée et personne ne peut prouver qui l'a fait, car l'API n'enregistre aucune trace des modifications.",
+                  "mitigation": "Journaliser chaque modification dans l'API : qui, quand, quelle note, ancienne et nouvelle valeur ; journal protégé contre la modification.",
+                  "modelType": "STRIDE",
+                  "id": "056d35e8-113e-4625-899c-cd0939a76af0",
+                  "number": 7,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Messages d'erreur trop détaillés",
+                  "type": "Information disclosure",
+                  "description": "En cas d'erreur, l'API renvoie le message technique (requête SQL, chemin de la base).",
+                  "mitigation": "Renvoyer un message générique ; garder le détail dans les journaux du serveur.",
+                  "modelType": "STRIDE",
+                  "id": "40651c36-0a1c-4b9b-a75d-bfb5f48cc9f7",
+                  "number": 8,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": "Utilisateur système non administrateur"
+            }
+          },
+          {
+            "position": {
+              "x": 880,
+              "y": 260
+            },
+            "size": {
+              "width": 160,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "Base des notes"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "3a2f7dfb-1300-4a91-a322-be8cf4cc5bb0"
+                },
+                {
+                  "group": "right",
+                  "id": "164e35dd-549e-41dc-85ef-1cdd1a18d09e"
+                },
+                {
+                  "group": "bottom",
+                  "id": "b9b00169-4a52-4ede-83dd-583c99396732"
+                },
+                {
+                  "group": "left",
+                  "id": "70728091-7713-4264-b643-f46afb2751d6"
+                }
+              ]
+            },
+            "id": "739523da-79d3-47b7-be0a-fa5423684181",
+            "data": {
+              "name": "Base des notes",
+              "description": "Fichier SQLite notes.db stocké sur le serveur de l'école.",
+              "type": "tm.Store",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Critical",
+                  "title": "Note modifiée par injection SQL",
+                  "type": "Tampering",
+                  "description": "Une saisie de l'utilisateur collée dans une requête SQL permet de modifier ou de supprimer des notes.",
+                  "mitigation": "Requêtes paramétrées uniquement ; compte de base de données avec le moindre privilège.",
+                  "modelType": "STRIDE",
+                  "id": "73872f0f-4bf6-46ca-bb15-66f2a6bae0f3",
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Copie du fichier notes.db ou d'une sauvegarde",
+                  "type": "Information disclosure",
+                  "description": "Quelqu'un qui accède au serveur ou à une sauvegarde copie le fichier et lit toutes les notes.",
+                  "mitigation": "Chiffrement au repos ; droits d'accès au fichier limités à l'application.",
+                  "modelType": "STRIDE",
+                  "id": "2fe26d7a-471a-4c88-8f49-eb550edb6ad2",
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Fichier notes.db supprimé ou corrompu",
+                  "type": "Denial of service",
+                  "description": "Le fichier de la base est effacé ou abîmé (erreur, panne du disque, attaque) : plus personne ne peut consulter ni saisir de notes.",
+                  "mitigation": "Sauvegardes régulières stockées à part et testées ; droits d'écriture sur le fichier limités à l'application.",
+                  "modelType": "STRIDE",
+                  "id": "ec5581d1-0e86-444a-a601-40347aac324a",
+                  "number": 11,
+                  "score": ""
+                }
+              ],
+              "hasOpenThreats": true,
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 6,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Demande de consultation des notes",
+              "description": "Requête de l'étudiant pour obtenir ses notes.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Interception des notes sur le Wi-Fi",
+                  "type": "Information disclosure",
+                  "description": "Quelqu'un sur le même Wi-Fi lit les échanges envoyés en HTTP, sans chiffrement.",
+                  "mitigation": "Chiffrer tous les échanges avec HTTPS (TLS).",
+                  "modelType": "STRIDE",
+                  "id": "f7d521f6-ccdf-40eb-a582-cfa88dbbad34",
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Demande modifiée en chemin",
+                  "type": "Tampering",
+                  "description": "La demande est modifiée pendant le transfert pour obtenir les notes d'un autre étudiant.",
+                  "mitigation": "HTTPS, et vérification des droits côté serveur pour chaque demande.",
+                  "modelType": "STRIDE",
+                  "id": "d609ecd4-b865-4f7f-a23c-be2c33a8374d",
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Saturation du lien le jour des résultats",
+                  "type": "Denial of service",
+                  "description": "Un grand nombre de demandes simultanées empêche les étudiants d'obtenir une réponse.",
+                  "mitigation": "Limiter le nombre de requêtes par utilisateur ; prévoir la montée en charge.",
+                  "modelType": "STRIDE",
+                  "id": "28dead9b-4be0-469d-8e4c-0363ee80b227",
+                  "number": 3,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Demande de consultation des notes",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "3e0fd1db-271d-497d-9c4b-8118822d1fdb",
+            "source": {
+              "cell": "7b6d45db-bc99-41a6-b550-37879a923fe1"
+            },
+            "target": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 7,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Notes de l'étudiant",
+              "description": "Réponse JSON contenant les notes.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Notes de l'étudiant",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "ff780da8-68ea-468c-826b-c3fd0b9dd346",
+            "source": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "target": {
+              "cell": "7b6d45db-bc99-41a6-b550-37879a923fe1"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 170
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 8,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Saisie ou modification d'une note",
+              "description": "Nouvelle note envoyée par l'enseignant.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Saisie ou modification d'une note",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "d526a912-5e87-4519-aecb-407cd0d27284",
+            "source": {
+              "cell": "a6a004e1-b058-4c2c-9304-650ee7b40861"
+            },
+            "target": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 265
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 9,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Confirmation",
+              "description": "Réponse de l'API après l'enregistrement.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Confirmation",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "9f2c2371-d900-44c0-b3cf-ef04cc3725f3",
+            "source": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "target": {
+              "cell": "a6a004e1-b058-4c2c-9304-650ee7b40861"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 345
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Maintenance du serveur",
+              "description": "Connexion à distance de l'administrateur.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "SSH",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Maintenance du serveur",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "dbae43c0-6e1f-4acb-b4ea-53d41548a92e",
+            "source": {
+              "cell": "ee77eab4-952a-4476-8046-176e122996fa"
+            },
+            "target": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 500
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 11,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Écriture des notes",
+              "description": "Requêtes SQL d'insertion et de modification.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "SQL",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Écriture des notes",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "685d9e9b-2bf3-4db7-8972-25b561ece49c",
+            "source": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "target": {
+              "cell": "739523da-79d3-47b7-be0a-fa5423684181"
+            },
+            "vertices": [
+              {
+                "x": 760,
+                "y": 255
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "strokeWidth": 1,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 12,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Lecture des notes",
+              "description": "Résultats des requêtes SQL de lecture.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "SQL",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Data Flow"
+                  },
+                  "labelText": {
+                    "text": "Lecture des notes",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": 0.5
+              }
+            ],
+            "id": "309601aa-0b21-4044-8aa3-83395c97461b",
+            "source": {
+              "cell": "739523da-79d3-47b7-be0a-fa5423684181"
+            },
+            "target": {
+              "cell": "55cc2388-5002-4d34-99f6-469390c1079e"
+            },
+            "vertices": [
+              {
+                "x": 760,
+                "y": 345
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 13,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Frontière 1 : Internet / serveur de l'école",
+              "description": "Sépare les réseaux non maîtrisés (Internet, Wi-Fi, 4G) du serveur de l'école.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Trust Boundary"
+                  },
+                  "labelText": {
+                    "text": "Frontière 1 : Internet / serveur de l'école",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  },
+                  "text": {
+                    "text": "Frontière 1 : Internet / serveur de l'école"
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": {
+                  "distance": 0.95,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "id": "ea9e86fa-21af-4354-bd38-09130aaf1ad7",
+            "source": {
+              "x": 290,
+              "y": 0
+            },
+            "target": {
+              "x": 290,
+              "y": 640
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "sourceMarker": ""
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 14,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Frontière 2 : API / base des notes",
+              "description": "Protège les données même si l'API est compromise.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              {
+                "attrs": {
+                  "label": {
+                    "text": "Trust Boundary"
+                  },
+                  "labelText": {
+                    "text": "Frontière 2 : API / base des notes",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  },
+                  "text": {
+                    "text": "Frontière 2 : API / base des notes"
+                  }
+                },
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "position": {
+                  "distance": 0.95,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "id": "27e67f47-eb30-4c18-b0ba-8a1f1ff8e092",
+            "source": {
+              "x": 760,
+              "y": 0
+            },
+            "target": {
+              "x": 760,
+              "y": 640
+            },
+            "vertices": []
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 11
+  }
+}
