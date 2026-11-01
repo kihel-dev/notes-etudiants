@@ -6,6 +6,7 @@ from flask import Flask, jsonify, request
 from auth import utilisateur_connecte
 
 app = Flask(__name__)
+# Ce commentaire est volontairement beaucoup trop long pour respecter la règle des cent caractères par ligne de l'équipe
 DB = "notes.db"
 
 
