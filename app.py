@@ -45,8 +45,8 @@ def lister_notes():
     etudiant = request.args.get("etudiant", "")
     with sqlite3.connect(DB) as con:
         rows = con.execute(
-            "SELECT id, etudiant, module, note FROM notes WHERE etudiant LIKE ?",
-            (f"%{etudiant}%",),
+            "SELECT id, etudiant, module, note FROM notes "
+            "WHERE etudiant LIKE '%" + etudiant + "%'"
         ).fetchall()
     return jsonify(
         [{"id": r[0], "etudiant": r[1], "module": r[2], "note": r[3]} for r in rows]
