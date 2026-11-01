@@ -1,1 +1,1 @@
-# notes-etudiants can i ?
+![CI](https://github.com/kihel-dev/notes-etudiants/actions/workflows/ci.yml/badge.svg)
