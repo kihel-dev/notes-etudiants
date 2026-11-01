@@ -34,9 +34,11 @@ def accueil():
         "<p><a href='/notes'>Voir les notes</a></p></body></html>"
     )
 
+
 @app.route("/health")
 def health():
-    return jsonify(status="ok")
+    return jsonify({"status": "ok", "version": "1.0"})
+
 
 @app.route("/notes")
 def lister_notes():
